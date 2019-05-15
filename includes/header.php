@@ -22,8 +22,8 @@ $connect = userOnly(true);
 					<li><a href="<?= uri("index.php?p=profil") ?>">profil</a></li>
 					<li><a href="<?= uri("index.php?deconnect") ?>">deconnexion</a></li>
 				<?php else: ?>
-				<li><a href="<?= uri("index.php?p=login") ?>">Connexion</a></li>
-				<li><a href="<?= uri("index.php?p=register") ?>">inscription</a></li>
+					<li><a href="<?= uri("index.php?p=login") ?>">Connexion</a></li>
+					<li><a href="<?= uri("index.php?p=register") ?>">Inscription</a></li>
 				<?php endif; ?> 
 				<li><a href="#">Contact</a></li>
 			</ul>

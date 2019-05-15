@@ -29,7 +29,7 @@
 					htmlspecialchars($_POST["mail"])
 				]
 			);
-			$user = $statement->fetch();
+			$user = $statement->fetch();//retourne un tableau avec tte les donnée de l'utilisateur ou retourne false
 		
 			if(!$user){
 				$password = password_hash(htmlspecialchars($_POST["password"]), PASSWORD_BCRYPT);
@@ -60,7 +60,7 @@
 					":mail"			=> htmlspecialchars($_POST["mail"]),
 					":password"		=> $password,
 					":token"		=> $token
-					]);
+					]);//retourne 1 ou false
 				
 				if($result){
 					//userConnect($_POST["mail"], $_POST["password"]);

@@ -15,7 +15,7 @@ function uri($cible="")//:string
 	$uri = "http://".$_SERVER['HTTP_HOST']; 
 	$folder = "";
 	if(!$racine) {
-		$folder = basename(dirname(dirname(__FILE__))).'/'; //Dossier courant
+		$folder = basename(dirname(dirname(__FILE__))).'/'; //Dossier courant, direname = chemin courant, basename = dernier élément
 	}
 	return $uri.'/'.$folder.$cible;
 }
@@ -99,7 +99,7 @@ function userConnect($mail, $password, $verify=false){//:boolean|void
 				unset($user['password']);
 				$_SESSION['auth'] = $user;
 				//connecté
-				header('location: profil.php');
+				header('location: index.php?p=profil');
 				exit();
 
 		}else{
@@ -122,14 +122,15 @@ function userConnect($mail, $password, $verify=false){//:boolean|void
 
 /**
 * verifie que l'utilisateur est connecté
-* @return array|void
+* @return array|void|boolean
 */
 function userOnly($verify=false){//:array|void|boolean
 	if (session_status() != PHP_SESSION_ACTIVE){
-		session_start();
+		session_start();//démarre une session
 	}
 	// est pas defini et false
 	if(!isset($_SESSION["auth"])){
+		//si verify = true, retourne false
 		if($verify){
 			return false;
 		//exit();
@@ -204,7 +205,7 @@ function sendMail($subject, $pMailTo, $pMessage, $pMailToBcc = true){//:string
   	
 
 // Send the message
-	return $mailer->send($message);
+	return $mailer->send($message);//donne le nb de message ou false
 
 }
 

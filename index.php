@@ -15,9 +15,9 @@ if(!isset($_GET['p'])){
 }else{
 	include 'includes/header.php';
 	$page = htmlspecialchars(strtolower($_GET['p']));
+	//router
 	switch($page)
 	{
-		//login ou register
 		case 'login':
 		case 'register':
 		case 'reset':
@@ -38,7 +38,7 @@ if(!isset($_GET['p'])){
 			if (session_status() != PHP_SESSION_ACTIVE){
 				session_start();
 			}
-			unset($_SESSION["auth"]);
+			unset($_SESSION["auth"]);//destruction auth
 			?>
 				<section class="sectionHome">
 					<h1>Bread Beer Shop</h1>

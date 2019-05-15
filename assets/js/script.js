@@ -1,5 +1,4 @@
-function calcPrice(obj, id, originalPrice)
-{
+function calcPrice(obj, id, originalPrice){
 	var qty = obj.value;
 
 	var pHT = originalPrice;
